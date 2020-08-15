@@ -20,9 +20,9 @@ int main() {
 	init();
 
 	while (true) {
-		ramp_up(1 << LED_RED);
+		ramp_up(LED_ALL);
 		_delay_ms(1000);
-		ramp_down(1 << LED_RED);
+		ramp_down(LED_ALL);
 		_delay_ms(1000);
 	}
 }

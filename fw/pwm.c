@@ -7,8 +7,8 @@
 const uint8_t RAMP_UP_PERIOD = 50;
 const uint8_t RAMP_DOWN_PERIOD = 20;
 const uint8_t PWM_FULL = 100;
-uint8_t ramp_up_mask = 0, ramp_down_mask = 0;
-uint8_t ramp_up_shift, ramp_down_shift;
+volatile uint8_t ramp_up_mask = 0, ramp_down_mask = 0;
+volatile uint8_t ramp_up_shift, ramp_down_shift;
 
 void pwm_update(uint16_t counter) {
 	static uint8_t pwm_counter = 0;
