@@ -4,13 +4,9 @@
 #include "pwm.h"
 #include "leds.h"
 
-#define RAMP_UP_PERIOD 50
-#define RAMP_DOWN_PERIOD 20
+#define RAMP_UP_PERIOD 20
+#define RAMP_DOWN_PERIOD 10
 #define PWM_FULL 100
-
-/*const uint8_t RAMP_UP_PERIOD = 50;
-const uint8_t RAMP_DOWN_PERIOD = 20;
-const uint8_t PWM_FULL = 100;*/
 
 volatile uint8_t ramp_up_mask = 0;
 volatile uint8_t ramp_down_mask = 0;
@@ -23,27 +19,27 @@ void pwm_update(uint16_t counter) {
 	if (ramp_up_mask != 0) {
 		led_set(ramp_up_mask, pwm_counter <= ramp_up_shift);
 		if (counter % RAMP_UP_PERIOD == 0) {
+			ramp_up_shift++;
 			if (ramp_up_shift >= PWM_FULL-1) {
 				ramp_up_mask = 0; // end
 				led_set(ramp_up_mask, true);
 			}
-			ramp_up_shift++;
 		}
 	}
 
 	if (ramp_down_mask != 0) {
 		led_set(ramp_down_mask, pwm_counter <= ramp_down_shift);
 		if (counter % RAMP_DOWN_PERIOD == 0) {
+			ramp_down_shift--;
 			if (ramp_down_shift <= 1) {
 				ramp_down_mask = 0; // end
 				led_set(ramp_down_mask, false);
 			}
-			ramp_down_shift--;
 		}
 	}
 
 	pwm_counter++;
-	if (pwm_counter == PWM_FULL)
+	if (pwm_counter >= PWM_FULL)
 		pwm_counter = 0;
 }
 

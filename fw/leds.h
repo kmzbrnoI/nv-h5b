@@ -5,24 +5,24 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define LED_YELLOW_BOTTOM 1
-#define LED_WHITE 2
-#define LED_RED 4
-#define LED_GREEN 8
-#define LED_YELLOW_TOP 16
-#define LED_ALL 0x1F
+#define LED_YELLOW_BOTTOM 32
+#define LED_WHITE 4
+#define LED_RED 8
+#define LED_GREEN 16
+#define LED_YELLOW_TOP 2
+#define LED_ALL 0x3E
 
 static inline void led_set(uint8_t mask, bool state) {
 	// LED indexed from 0
 	if (state)
-		PORTB &= ~((mask & 0x1F) << 1);
+		PORTB &= ~(mask & LED_ALL);
 	else
-		PORTB |= ((mask & 0x1F) << 1);
+		PORTB |= (mask & LED_ALL);
 }
 
 static inline void led_init() {
-	DDRB |= 0x3E;
-	PORTB |= 0x3E;
+	DDRB |= LED_ALL;
+	PORTB |= LED_ALL;
 }
 
 #endif

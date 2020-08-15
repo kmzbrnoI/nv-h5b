@@ -20,12 +20,11 @@ void init();
 int main() {
 	init();
 	led_set(LED_RED, true);
+	_delay_ms(100);
+	set_signal_code(3);
 
 	while (true) {
-		_delay_ms(1000);
-		set_signal_code(1);
-		_delay_ms(1000);
-		set_signal_code(4);
+		_delay_ms(100);
 	}
 }
 
@@ -47,5 +46,6 @@ ISR(TIM0_COMPA_vect) {
 	static uint16_t counter = 0xFFFF;
 	counter++;
 
+	signal_update(counter);
 	pwm_update(counter);
 }

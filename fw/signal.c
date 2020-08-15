@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "signal.h"
 #include "leds.h"
@@ -29,6 +30,7 @@ const SignalCode codes[] = {
 };
 
 volatile uint8_t current_signal_code = 0;
+volatile bool flash_state = false;
 
 void set_signal_code(uint8_t code) {
 	uint8_t turn_off = codes[current_signal_code].outputs & (~codes[code].outputs);
@@ -37,4 +39,16 @@ void set_signal_code(uint8_t code) {
 	ramp_down(turn_off);
 	ramp_up(turn_on);
 	current_signal_code = code;
+	flash_state = true;
+}
+
+void signal_update(uint16_t counter) {
+	if ((codes[current_signal_code].flash != 0) && (counter % SIGNAL_FLASH_PERIOD == 0)) {
+		if (flash_state)
+			ramp_down(codes[current_signal_code].flash);
+		else
+			ramp_up(codes[current_signal_code].flash);
+
+		flash_state = !flash_state;
+	}
 }
