@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define LED_YELLOW_BOTTOM 0
+#define LED_YELLOW_BOTTOM 1
 #define LED_WHITE 2
 #define LED_RED 4
 #define LED_GREEN 8

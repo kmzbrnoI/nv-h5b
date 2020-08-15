@@ -19,12 +19,13 @@ void init();
 
 int main() {
 	init();
+	led_set(LED_RED, true);
 
 	while (true) {
-		ramp_up(LED_ALL);
 		_delay_ms(1000);
-		ramp_down(LED_ALL);
+		set_signal_code(1);
 		_delay_ms(1000);
+		set_signal_code(4);
 	}
 }
 
