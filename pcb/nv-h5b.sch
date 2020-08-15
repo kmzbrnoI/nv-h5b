@@ -6399,7 +6399,7 @@ Source: Fairchild .. BAT54.pdf</description>
 <sheet>
 <plain>
 <text x="140.462" y="20.32" size="2.54" layer="97">Jan Horáček</text>
-<text x="86.36" y="17.78" size="5.08" layer="97">NV-H5B</text>
+<text x="86.36" y="17.78" size="5.08" layer="97">NV-H5B v1.0</text>
 <text x="86.36" y="5.08" size="2.54" layer="97">S-COM dekodér
 Napájení: 5 V
 Rezistor pro každou LED</text>
