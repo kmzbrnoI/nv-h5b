@@ -6371,14 +6371,14 @@ Source: Fairchild .. BAT54.pdf</description>
 <part name="IC1" library="atmel" library_urn="urn:adsk.eagle:library:105" deviceset="TINY13" device="SSU" package3d_urn="urn:adsk.eagle:package:4358/1" technology="-20" value="TINY13A-20SSU"/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="100n"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="1u"/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="RR" library="rcl" deviceset="R-EU_" device="R0805" value="1k"/>
-<part name="RG" library="rcl" deviceset="R-EU_" device="R0805" value="1k"/>
-<part name="RYT" library="rcl" deviceset="R-EU_" device="R0805" value="1k"/>
-<part name="RYB" library="rcl" deviceset="R-EU_" device="R0805" value="1k"/>
-<part name="RW" library="rcl" deviceset="R-EU_" device="R0805" value="1k"/>
+<part name="RR" library="rcl" deviceset="R-EU_" device="R0805" value="4k7"/>
+<part name="RG" library="rcl" deviceset="R-EU_" device="R0805" value="4k7"/>
+<part name="RYT" library="rcl" deviceset="R-EU_" device="R0805" value="4k7"/>
+<part name="RYB" library="rcl" deviceset="R-EU_" device="R0805" value="4k7"/>
+<part name="RW" library="rcl" deviceset="R-EU_" device="R0805" value="4k7"/>
 <part name="PADR" library="wirepad" deviceset="SMD3" device=""/>
 <part name="PADG" library="wirepad" deviceset="SMD3" device=""/>
 <part name="PADYT" library="wirepad" deviceset="SMD3" device=""/>
