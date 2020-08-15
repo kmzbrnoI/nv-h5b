@@ -6403,6 +6403,9 @@ Source: Fairchild .. BAT54.pdf</description>
 <text x="86.36" y="5.08" size="2.54" layer="97">S-COM dekodér
 Napájení: 5 V
 Rezistor pro každou LED</text>
+<text x="17.78" y="12.7" size="2.54" layer="97">Maximální odběr: ~3 mA / LED
+Ideální odběr: 1 mA / LED
+Maximální odběr modulu: 20 mA</text>
 </plain>
 <instances>
 <instance part="IC1" gate="G$1" x="124.46" y="83.82" smashed="yes">
