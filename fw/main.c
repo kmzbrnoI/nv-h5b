@@ -20,6 +20,10 @@ int main() {
 	init();
 
 	while (true) {
+		ramp_up(1 << LED_RED);
+		_delay_ms(1000);
+		ramp_down(1 << LED_RED);
+		_delay_ms(1000);
 	}
 }
 
@@ -28,21 +32,18 @@ void init() {
 
 	// Setup timer 0
 	TCCR0A |= 1 << WGM01; // CTC mode
-	TCCR0B |= 1 << CS01; // prescaler 8×
+	TCCR0B |= 1 << CS01; // no prescaler
 	TIMSK0 |= 1 << OCIE0A; // enable compare match A
-	OCR0A = 149;
+	OCR0A = 119;
 
 	sei(); // enable interrupts globally
 }
 
 
 ISR(TIM0_COMPA_vect) {
-	// Timer 0 @ 1 kHz (period 1 ms)
+	// Timer 0 @ 10 kHz (period 100 us)
 	static uint16_t counter = 0xFFFF;
 	counter++;
 
-	if (counter % 2000 == 0)
-		led_set(0xFF, true);
-	else if (counter % 2000 == 1000)
-		led_set(0xFF, false);
+	pwm_update(counter);
 }

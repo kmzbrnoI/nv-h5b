@@ -5,11 +5,11 @@
 #include <stdint.h>
 #include <avr/io.h>
 
-#define LED_YELLOW_BOTTOM 1
-#define LED_WHITE 2
-#define LED_RED 3
-#define LED_GREEN 4
-#define LED_YELLOW_TOP 5
+#define LED_YELLOW_BOTTOM 0
+#define LED_WHITE 1
+#define LED_RED 2
+#define LED_GREEN 2
+#define LED_YELLOW_TOP 4
 
 static inline void led_set(uint8_t mask, bool state) {
 	// LED indexed from 0
