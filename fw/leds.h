@@ -6,10 +6,10 @@
 #include <avr/io.h>
 
 #define LED_YELLOW_BOTTOM 0
-#define LED_WHITE 1
-#define LED_RED 2
-#define LED_GREEN 3
-#define LED_YELLOW_TOP 4
+#define LED_WHITE 2
+#define LED_RED 4
+#define LED_GREEN 8
+#define LED_YELLOW_TOP 16
 #define LED_ALL 0x1F
 
 static inline void led_set(uint8_t mask, bool state) {
