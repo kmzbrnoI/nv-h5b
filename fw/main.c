@@ -6,6 +6,8 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
+#include "leds.h"
+
 ///////////////////////////////////////////////////////////////////////////////
 
 int main();
@@ -21,5 +23,7 @@ int main() {
 }
 
 void init() {
+	led_init();
+
 	sei(); // enable interrupts globally
 }
