@@ -20,6 +20,7 @@ int main() {
 	init();
 
 	while (true) {
+		led_set(0xFF, true);
 	}
 }
 

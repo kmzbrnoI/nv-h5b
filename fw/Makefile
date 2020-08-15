@@ -41,12 +41,14 @@
 
 
 # MCU name
-MCU = attiny13a
+MCU = attiny13
 
 
 # Processor fuses.
 #     Define fuses for processor, flash by calling 'make fuses'
-FUSES = -U lfuse:w:0xed:m -U hfuse:w:0xd9:m -U efuse:w:0xfe:m
+FUSES = -U lfuse:w:0x66:m -U hfuse:w:0xFB:m -U lock:w:0xFF:m
+# 9.6 MHz, prescaler 8×
+# TODO: change hfuse to 0xFA to disable reset pin
 
 
 # Processor frequency.
@@ -67,7 +69,7 @@ FUSES = -U lfuse:w:0xed:m -U hfuse:w:0xd9:m -U efuse:w:0xfe:m
 #         F_CPU = 16000000
 #         F_CPU = 18432000
 #         F_CPU = 20000000
-F_CPU = 3686400
+F_CPU = 1200000
 
 
 # Output format. (can be srec, ihex, binary)

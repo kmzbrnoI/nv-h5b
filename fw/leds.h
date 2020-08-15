@@ -14,9 +14,10 @@
 static inline void led_set(uint8_t mask, bool state) {
 	// LED indexed from 0
 	if (state)
-		PORTB |= ((mask & 0x1F) << 1);
-	else
 		PORTB &= ~((mask & 0x1F) << 1);
+	else
+		PORTB |= ((mask & 0x1F) << 1);
+
 }
 
 static inline void led_init() {
