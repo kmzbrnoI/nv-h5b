@@ -6,6 +6,6 @@
 extern volatile uint8_t current_signal_code;
 
 void set_signal_code(uint8_t code);
-void signal_update(uint16_t counter);
+void signal_update();
 
 #endif

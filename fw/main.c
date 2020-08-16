@@ -6,6 +6,7 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
+#include "common.h"
 #include "leds.h"
 #include "pwm.h"
 #include "signal.h"
@@ -17,10 +18,14 @@ void init();
 
 ///////////////////////////////////////////////////////////////////////////////
 
+uint16_t counter_100us = 0;
+
+///////////////////////////////////////////////////////////////////////////////
+
 int main() {
 	init();
 	led_set(LED_RED, true);
-	_delay_ms(100);
+	_delay_ms(500);
 	set_signal_code(3);
 
 	while (true) {
@@ -40,12 +45,10 @@ void init() {
 	sei(); // enable interrupts globally
 }
 
-
 ISR(TIM0_COMPA_vect) {
 	// Timer 0 @ 10 kHz (period 100 us)
-	static uint16_t counter = 0xFFFF;
-	counter++;
+	counter_100us++;
 
-	signal_update(counter);
-	pwm_update(counter);
+	signal_update();
+	pwm_update();
 }

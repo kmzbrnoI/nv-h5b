@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdbool.h>
+#include <avr/pgmspace.h>
 
 #include "signal.h"
 #include "leds.h"
@@ -10,7 +11,7 @@ typedef struct {
 	uint8_t flash; // mask, see leds.h
 } SignalCode;
 
-const SignalCode codes[] = {
+const SignalCode codes[] PROGMEM = {
 	{LED_RED, 0},
 	{LED_GREEN, 0},
 	{LED_YELLOW_TOP, 0},
@@ -31,23 +32,33 @@ const SignalCode codes[] = {
 
 volatile uint8_t current_signal_code = 0;
 volatile bool flash_state = false;
+volatile uint16_t counter = 0;
+
+static inline SignalCode signal_code(uint8_t index) {
+	SignalCode code;
+	memcpy_P(&code, &codes[index], sizeof(SignalCode));
+	return code;
+}
 
 void set_signal_code(uint8_t code) {
-	uint8_t turn_off = codes[current_signal_code].outputs & (~codes[code].outputs);
-	uint8_t turn_on = codes[code].outputs & (~codes[current_signal_code].outputs);
+	uint8_t turn_off = signal_code(current_signal_code).outputs & (~signal_code(code).outputs);
+	uint8_t turn_on = signal_code(code).outputs & (~signal_code(current_signal_code).outputs);
 
 	ramp_down(turn_off);
 	ramp_up(turn_on);
 	current_signal_code = code;
 	flash_state = true;
+	counter = 0;
 }
 
-void signal_update(uint16_t counter) {
-	if ((codes[current_signal_code].flash != 0) && (counter % SIGNAL_FLASH_PERIOD == 0)) {
+void signal_update() {
+	counter++;
+
+	if ((signal_code(current_signal_code).flash != 0) && (counter % SIGNAL_FLASH_PERIOD == 0)) {
 		if (flash_state)
-			ramp_down(codes[current_signal_code].flash);
+			ramp_down(signal_code(current_signal_code).flash);
 		else
-			ramp_up(codes[current_signal_code].flash);
+			ramp_up(signal_code(current_signal_code).flash);
 
 		flash_state = !flash_state;
 	}

@@ -3,6 +3,6 @@
 
 void ramp_up(uint8_t mask);
 void ramp_down(uint8_t mask);
-void pwm_update(uint16_t counter);
+void pwm_update();
 
 #endif
