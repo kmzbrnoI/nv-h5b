@@ -16,6 +16,7 @@ volatile uint8_t period;
 volatile uint8_t receiving_time;
 volatile int16_t received_value;
 volatile uint8_t received_code;
+volatile uint8_t last_received_code = 0xFF;
 
 #define REC_NONE -3
 #define REC_STARTBIT -2
@@ -53,8 +54,9 @@ ISR(PCINT0_vect) {
 }
 
 static inline void code_received() {
-	led_toggle(LED_YELLOW_TOP);
-	// TODO (code_received)
+	if (received_code == last_received_code)
+		set_signal_code(received_code);
+	last_received_code = received_code;
 }
 
 void decode_update() {
