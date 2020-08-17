@@ -22,8 +22,8 @@ void pwm_update() {
 		if (counter_100us % RAMP_UP_PERIOD == 0) {
 			ramp_up_shift++;
 			if (ramp_up_shift >= PWM_FULL-1) {
-				ramp_up_mask = 0; // end
 				led_set(ramp_up_mask, true);
+				ramp_up_mask = 0; // end
 			}
 		}
 	}
@@ -33,8 +33,8 @@ void pwm_update() {
 		if (counter_100us % RAMP_DOWN_PERIOD == 0) {
 			ramp_down_shift--;
 			if (ramp_down_shift <= 1) {
-				ramp_down_mask = 0; // end
 				led_set(ramp_down_mask, false);
+				ramp_down_mask = 0; // end
 			}
 		}
 	}
