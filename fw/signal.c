@@ -36,7 +36,7 @@ volatile uint16_t counter = 0;
 
 static inline SignalCode signal_code(uint8_t index) {
 	SignalCode code;
-	memcpy_P(&code, &codes[index], sizeof(SignalCode));
+	memcpy_P(&code, codes + index, sizeof(SignalCode));
 	return code;
 }
 

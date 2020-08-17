@@ -41,7 +41,7 @@
 
 
 # MCU name
-MCU = attiny13
+MCU = attiny25
 
 
 # Processor fuses.
@@ -86,7 +86,7 @@ OBJDIR = obj
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = main.c pwm.c signal.c
+SRC = main.c pwm.c signal.c decode.c
 
 # List C++ source files here. (C dependencies are automatically generated.)
 # CPPSRC =
