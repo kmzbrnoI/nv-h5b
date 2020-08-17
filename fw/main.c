@@ -33,6 +33,8 @@ int main() {
 }
 
 static inline void init() {
+	ACSR |= ACD;  // analog comparator disable
+
 	detect_signal_type();
 	led_init();
 	decode_init();
@@ -59,4 +61,5 @@ ISR(TIM0_COMPA_vect) {
 
 	signal_update();
 	pwm_update();
+	decode_update();
 }
