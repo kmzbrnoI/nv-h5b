@@ -54,7 +54,7 @@ ISR(PCINT0_vect) {
 }
 
 static inline void code_received() {
-	if (received_code == last_received_code)
+	if (received_code == last_received_code && received_code != current_signal_code)
 		set_signal_code(received_code);
 	last_received_code = received_code;
 }
@@ -76,10 +76,9 @@ void decode_update() {
 		if (receiving_time >= period) {
 			last_received++;
 			receiving_time = 0;
-			received_code <<= 1;
 
 			if (received_value > period/2)
-				received_code |= 1;
+				received_code |= (1 << (last_received-REC_BIT0-1));
 			else if (received_value > -period/2) { // error
 				last_received = REC_NONE;
 				return;
@@ -88,9 +87,8 @@ void decode_update() {
 
 			if (last_received == REC_STOPBIT+1) {
 				last_received = REC_NONE;
-				if ((received_code & 0x1) != 0) // error
+				if ((received_code & 0x80) != 0) // error
 					return;
-				received_code >>= 1; // remove startbit
 				code_received();
 			}
 		}

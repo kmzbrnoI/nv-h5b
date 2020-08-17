@@ -7,9 +7,9 @@
 #include <util/delay.h>
 
 #define LED_YELLOW_BOTTOM 32
-#define LED_WHITE 16
+#define LED_WHITE 4
 #define LED_RED 8
-#define LED_GREEN 4
+#define LED_GREEN 16
 #define LED_YELLOW_TOP 2
 #define LED_ALL 0x3E
 
