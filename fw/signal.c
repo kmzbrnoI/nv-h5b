@@ -11,7 +11,7 @@ typedef struct {
 	uint8_t flash; // mask, see leds.h
 } SignalCode;
 
-const SignalCode codes[] PROGMEM = {
+const SignalCode codes[2][16] PROGMEM = {{
 	{LED_RED, 0},
 	{LED_GREEN, 0},
 	{LED_YELLOW_TOP, 0},
@@ -28,15 +28,33 @@ const SignalCode codes[] PROGMEM = {
 	{0, 0},
 	{LED_YELLOW_TOP | LED_WHITE, LED_YELLOW_TOP},
 	{LED_YELLOW_TOP | LED_WHITE | LED_YELLOW_BOTTOM, 0},
-};
+}, {
+	{LED_WHITE | LED_YELLOW_TOP, 0},
+	{LED_WHITE | LED_GREEN, 0},
+	{LED_WHITE | LED_GREEN, 0},
+	{LED_WHITE | LED_GREEN, 0},
+	{LED_WHITE | LED_YELLOW_TOP, LED_YELLOW_TOP},
+	{LED_ALL, 0},
+	{LED_WHITE | LED_YELLOW_TOP, LED_YELLOW_TOP},
+	{LED_WHITE | LED_YELLOW_TOP, LED_YELLOW_TOP},
+	{LED_WHITE | LED_YELLOW_TOP, 0}, // PN
+	{LED_WHITE | LED_YELLOW_TOP, 0},
+	{LED_WHITE | LED_YELLOW_TOP, 0},
+	{LED_WHITE | LED_GREEN, 0},
+	{LED_WHITE | LED_YELLOW_TOP, 0},
+	{LED_WHITE | 0, 0},
+	{LED_YELLOW_TOP, LED_YELLOW_TOP},
+	{LED_YELLOW_TOP, 0},
+}};
 
 volatile uint8_t current_signal_code = 0;
 volatile bool flash_state = false;
 volatile uint16_t counter = 0;
+volatile uint8_t signal_set = 0;
 
 static inline SignalCode signal_code(uint8_t index) {
 	SignalCode code;
-	memcpy_P(&code, codes + index, sizeof(SignalCode));
+	memcpy_P(&code, &codes[signal_set][index], sizeof(SignalCode));
 	return code;
 }
 
