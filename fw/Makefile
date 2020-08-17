@@ -46,8 +46,9 @@ MCU = attiny25
 
 # Processor fuses.
 #     Define fuses for processor, flash by calling 'make fuses'
-FUSES = -U lfuse:w:0x76:m -U hfuse:w:0xFB:m -U lock:w:0xFF:m # 9.6 MHz
-# TODO: change hfuse to 0xFA to disable reset pin
+FUSES = -U lfuse:w:0xD2:m -U hfuse:w:0xDD:m -U efuse:w:0xFF:m -U lock:w:0xFF:m
+# change hfuse to 0x5D to disable reset pin
+# 8 MHz internal oscilator
 
 
 # Processor frequency.
@@ -68,7 +69,7 @@ FUSES = -U lfuse:w:0x76:m -U hfuse:w:0xFB:m -U lock:w:0xFF:m # 9.6 MHz
 #         F_CPU = 16000000
 #         F_CPU = 18432000
 #         F_CPU = 20000000
-F_CPU = 9600000
+F_CPU = 8000000
 
 
 # Output format. (can be srec, ihex, binary)

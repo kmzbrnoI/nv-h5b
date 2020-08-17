@@ -13,7 +13,6 @@
 #define LED_ALL 0x3E
 
 static inline void led_set(uint8_t mask, bool state) {
-	// LED indexed from 0
 	if (state)
 		PORTB &= ~(mask & LED_ALL);
 	else
