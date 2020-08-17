@@ -16,6 +16,7 @@
 
 int main();
 static inline void init();
+static inline void detect_signal_type();
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -32,6 +33,7 @@ int main() {
 }
 
 static inline void init() {
+	detect_signal_type();
 	led_init();
 	decode_init();
 
@@ -42,6 +44,13 @@ static inline void init() {
 	OCR0A = 119;
 
 	sei(); // enable interrupts globally
+}
+
+static inline void detect_signal_type() {
+	DDRB |= LED_RED; // pin as output
+	PINB &= ~(LED_RED); // zero to output
+	_delay_ms(1);
+	signal_set = (PINB & LED_YELLOW_BOTTOM) ? 0 : 1;
 }
 
 ISR(TIM0_COMPA_vect) {
