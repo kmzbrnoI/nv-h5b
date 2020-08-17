@@ -47,7 +47,7 @@ const SignalCode codes[2][16] PROGMEM = {{
 	{LED_YELLOW_TOP, 0},
 }};
 
-volatile uint8_t current_signal_code = 0;
+volatile int8_t current_signal_code = -1;
 volatile bool flash_state = false;
 volatile uint16_t counter = 0;
 volatile uint8_t signal_set = 0;
@@ -59,10 +59,15 @@ static inline SignalCode signal_code(uint8_t index) {
 }
 
 void set_signal_code(uint8_t code) {
-	uint8_t turn_off = signal_code(current_signal_code).outputs & (~signal_code(code).outputs);
-	uint8_t turn_on = signal_code(code).outputs & (~signal_code(current_signal_code).outputs);
 
-	ramp_down(turn_off);
+	uint8_t turn_on = signal_code(code).outputs;
+
+	if (current_signal_code != -1) {
+		turn_on &= ~signal_code(current_signal_code).outputs;
+		uint8_t turn_off = signal_code(current_signal_code).outputs & (~signal_code(code).outputs);
+		ramp_down(turn_off);
+	}
+
 	ramp_up(turn_on);
 	current_signal_code = code;
 	flash_state = true;
