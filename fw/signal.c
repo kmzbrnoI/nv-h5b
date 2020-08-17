@@ -11,7 +11,9 @@ typedef struct {
 	uint8_t flash; // mask, see leds.h
 } SignalCode;
 
-const SignalCode codes[2][16] PROGMEM = {{
+#define NO_CODES 16
+
+const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_RED, 0},
 	{LED_GREEN, 0},
 	{LED_YELLOW_TOP, 0},
@@ -59,6 +61,8 @@ static inline SignalCode signal_code(uint8_t index) {
 }
 
 void set_signal_code(uint8_t code) {
+	if (code >= NO_CODES)
+		return;
 
 	uint8_t turn_on = signal_code(code).outputs;
 
