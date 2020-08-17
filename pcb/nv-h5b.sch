@@ -6368,7 +6368,7 @@ Source: Fairchild .. BAT54.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="IC1" library="atmel" library_urn="urn:adsk.eagle:library:105" deviceset="TINY13" device="SSU" package3d_urn="urn:adsk.eagle:package:4358/1" technology="-20" value="TINY13A-20SSU"/>
+<part name="IC1" library="atmel" library_urn="urn:adsk.eagle:library:105" deviceset="TINY13" device="SSU" package3d_urn="urn:adsk.eagle:package:4358/1" technology="-20" value="ATTINY25-20SU"/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="VCC" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="1u"/>
