@@ -1,7 +1,7 @@
 #ifndef _SIGNAL_H_
 #define _SIGNAL_H_
 
-#define SIGNAL_FLASH_PERIOD 9363 // 65536 should not be divisible by this number
+#define SIGNAL_FLASH_PERIOD 5470 // 65536 should not be divisible by this number
 
 extern volatile int8_t current_signal_code;
 extern volatile uint8_t signal_set;
