@@ -44,7 +44,7 @@ const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_WHITE | LED_YELLOW_TOP, 0},
 	{LED_WHITE | LED_GREEN, 0},
 	{LED_WHITE | LED_YELLOW_TOP, 0},
-	{LED_WHITE | 0, 0},
+	{0, 0},
 	{LED_YELLOW_TOP, LED_YELLOW_TOP},
 	{LED_YELLOW_TOP, 0},
 }};
