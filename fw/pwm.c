@@ -47,9 +47,11 @@ void pwm_update() {
 void ramp_up(uint8_t mask) {
 	ramp_up_mask = mask;
 	ramp_up_shift = 0;
+	ramp_down_mask &= ~ramp_up_mask;
 }
 
 void ramp_down(uint8_t mask) {
 	ramp_down_mask = mask;
 	ramp_down_shift = PWM_FULL;
+	ramp_up_mask &= ~ramp_down_mask;
 }
