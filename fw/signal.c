@@ -69,6 +69,8 @@ void set_signal_code(uint8_t code) {
 	if (current_signal_code != -1) {
 		turn_on &= ~signal_code(current_signal_code).outputs;
 		uint8_t turn_off = signal_code(current_signal_code).outputs & (~signal_code(code).outputs);
+		if (!flash_state)
+			turn_on |= signal_code(current_signal_code).flash;
 		ramp_down(turn_off);
 	}
 

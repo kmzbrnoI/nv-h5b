@@ -52,7 +52,7 @@ static inline void detect_signal_type() {
 	DDRB |= LED_RED; // pin as output
 	PORTB &= ~(LED_RED); // zero to output
 	_delay_ms(1);
-	signal_set = (PINB & LED_YELLOW_TOP) ? 0 : 1; // TODO: change to bottom
+	signal_set = (PINB & LED_YELLOW_BOTTOM) ? 0 : 1;
 }
 
 ISR(TIM0_COMPA_vect) {
