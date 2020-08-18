@@ -77,9 +77,10 @@ void decode_update() {
 			last_received++;
 			receiving_time = 0;
 
-			if (received_value > period/2)
-				received_code |= (1 << (last_received-REC_BIT0-1));
-			else if (received_value > -period/2) { // error
+			if (received_value > period/2) {
+				if (last_received > REC_BIT0)
+					received_code |= (1 << (last_received-REC_BIT0-1));
+			} else if (received_value > -period/2) { // error
 				last_received = REC_NONE;
 				return;
 			}
