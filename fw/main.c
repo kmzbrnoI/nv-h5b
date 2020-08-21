@@ -5,6 +5,7 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include <avr/io.h>
+#include <avr/wdt.h>
 
 #include "common.h"
 #include "leds.h"
@@ -29,11 +30,14 @@ int main() {
 	set_signal_code(8);
 
 	while (true) {
+		wdt_reset();
 	}
 }
 
 static inline void init() {
 	ACSR |= ACD;  // analog comparator disable
+	WDTCR |= 1 << WDE;  // watchdog enable
+	WDTCR |= WDP2; // ~250 ms timeout
 
 	detect_signal_type();
 	led_init();
