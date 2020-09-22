@@ -11,7 +11,7 @@ typedef struct {
 	uint8_t flash; // mask, see leds.h
 } SignalCode;
 
-#define NO_CODES 16
+#define NO_CODES 17
 
 const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_RED, 0},
@@ -23,13 +23,14 @@ const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_YELLOW_TOP | LED_YELLOW_BOTTOM, 0},
 	{LED_YELLOW_TOP | LED_YELLOW_BOTTOM, LED_YELLOW_TOP},
 	{LED_RED | LED_WHITE, LED_WHITE}, // PN
-	{LED_RED | LED_WHITE, 0},
 	{LED_WHITE, 0},
+	{LED_RED | LED_WHITE, 0},
 	{LED_GREEN | LED_WHITE, 0},
 	{LED_YELLOW_TOP | LED_WHITE, 0},
 	{0, 0},
 	{LED_YELLOW_TOP | LED_WHITE, LED_YELLOW_TOP},
 	{LED_YELLOW_TOP | LED_WHITE | LED_YELLOW_BOTTOM, 0},
+	{LED_YELLOW_TOP | LED_WHITE | LED_YELLOW_BOTTOM, LED_YELLOW_TOP},
 }, {
 	{LED_WHITE | LED_YELLOW_TOP, 0},
 	{LED_WHITE | LED_GREEN, 0},
@@ -45,8 +46,9 @@ const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_WHITE | LED_GREEN, 0},
 	{LED_WHITE | LED_YELLOW_TOP, 0},
 	{0, 0},
-	{LED_YELLOW_TOP, LED_YELLOW_TOP},
-	{LED_YELLOW_TOP, 0},
+	{LED_WHITE | LED_YELLOW_TOP, LED_YELLOW_TOP},
+	{LED_WHITE | LED_YELLOW_TOP, 0},
+	{LED_WHITE | LED_YELLOW_TOP, LED_YELLOW_TOP},
 }};
 
 volatile int8_t current_signal_code = -1;
