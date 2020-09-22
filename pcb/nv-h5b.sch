@@ -6399,13 +6399,14 @@ Source: Fairchild .. BAT54.pdf</description>
 <sheet>
 <plain>
 <text x="140.462" y="20.32" size="2.54" layer="97">Jan Horáček</text>
-<text x="86.36" y="17.78" size="5.08" layer="97">NV-H5B v1.0</text>
+<text x="86.36" y="17.78" size="5.08" layer="97">NV-H5B v2.0</text>
 <text x="86.36" y="5.08" size="2.54" layer="97">S-COM dekodér
 Napájení: 5 V
 Rezistor pro každou LED</text>
-<text x="17.78" y="12.7" size="2.54" layer="97">Maximální odběr: ~3 mA / LED
+<text x="17.78" y="15.494" size="2.54" layer="97">Maximální odběr: ~3 mA / LED
 Ideální odběr: 1 mA / LED
 Maximální odběr modulu: 20 mA</text>
+<text x="17.78" y="10.16" size="2.54" layer="97">Vyrábět na DPS tlouštky 1 mm</text>
 </plain>
 <instances>
 <instance part="IC1" gate="G$1" x="124.46" y="83.82" smashed="yes">
@@ -6418,15 +6419,15 @@ Maximální odběr modulu: 20 mA</text>
 <instance part="GND1" gate="1" x="99.06" y="71.12" smashed="yes">
 <attribute name="VALUE" x="96.52" y="68.58" size="1.778" layer="96"/>
 </instance>
-<instance part="C1" gate="G$1" x="63.5" y="45.72" smashed="yes">
-<attribute name="NAME" x="65.024" y="46.101" size="1.778" layer="95"/>
-<attribute name="VALUE" x="65.024" y="41.021" size="1.778" layer="96"/>
+<instance part="C1" gate="G$1" x="63.5" y="48.26" smashed="yes">
+<attribute name="NAME" x="65.024" y="48.641" size="1.778" layer="95"/>
+<attribute name="VALUE" x="65.024" y="43.561" size="1.778" layer="96"/>
 </instance>
-<instance part="P+2" gate="VCC" x="63.5" y="55.88" smashed="yes">
-<attribute name="VALUE" x="60.96" y="53.34" size="1.778" layer="96" rot="R90"/>
+<instance part="P+2" gate="VCC" x="63.5" y="58.42" smashed="yes">
+<attribute name="VALUE" x="60.96" y="55.88" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND2" gate="1" x="63.5" y="35.56" smashed="yes">
-<attribute name="VALUE" x="60.96" y="33.02" size="1.778" layer="96"/>
+<instance part="GND2" gate="1" x="63.5" y="38.1" smashed="yes">
+<attribute name="VALUE" x="60.96" y="35.56" size="1.778" layer="96"/>
 </instance>
 <instance part="RR" gate="G$1" x="73.66" y="99.06" smashed="yes" rot="R270">
 <attribute name="NAME" x="75.1586" y="95.25" size="1.778" layer="95" rot="R270"/>
@@ -6474,21 +6475,21 @@ Maximální odběr modulu: 20 mA</text>
 <instance part="P+3" gate="VCC" x="40.64" y="111.76" smashed="yes">
 <attribute name="VALUE" x="38.1" y="109.22" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="J1" gate="-1" x="40.64" y="48.26" smashed="yes" rot="MR0">
-<attribute name="NAME" x="38.1" y="47.498" size="1.524" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="41.402" y="49.657" size="1.778" layer="96" rot="MR0"/>
+<instance part="J1" gate="-1" x="40.64" y="50.8" smashed="yes" rot="MR0">
+<attribute name="NAME" x="38.1" y="50.038" size="1.524" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="41.402" y="52.197" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="J1" gate="-2" x="33.02" y="78.74" smashed="yes" rot="MR0">
 <attribute name="NAME" x="30.48" y="77.978" size="1.524" layer="95" rot="MR0"/>
 </instance>
-<instance part="J1" gate="-3" x="40.64" y="43.18" smashed="yes" rot="MR0">
-<attribute name="NAME" x="38.1" y="42.418" size="1.524" layer="95" rot="MR0"/>
+<instance part="J1" gate="-3" x="40.64" y="45.72" smashed="yes" rot="MR0">
+<attribute name="NAME" x="38.1" y="44.958" size="1.524" layer="95" rot="MR0"/>
 </instance>
-<instance part="P+4" gate="VCC" x="53.34" y="55.88" smashed="yes">
-<attribute name="VALUE" x="50.8" y="53.34" size="1.778" layer="96" rot="R90"/>
+<instance part="P+4" gate="VCC" x="53.34" y="58.42" smashed="yes">
+<attribute name="VALUE" x="50.8" y="55.88" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND3" gate="1" x="53.34" y="35.56" smashed="yes">
-<attribute name="VALUE" x="50.8" y="33.02" size="1.778" layer="96"/>
+<instance part="GND3" gate="1" x="53.34" y="38.1" smashed="yes">
+<attribute name="VALUE" x="50.8" y="35.56" size="1.778" layer="96"/>
 </instance>
 <instance part="FRAME2" gate="G$1" x="0" y="0" smashed="yes">
 <attribute name="DRAWING_NAME" x="140.97" y="15.24" size="2.54" layer="94"/>
@@ -6501,9 +6502,9 @@ Maximální odběr modulu: 20 mA</text>
 <instance part="P+5" gate="VCC" x="50.8" y="111.76" smashed="yes">
 <attribute name="VALUE" x="48.26" y="109.22" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="D2" gate="G$1" x="48.26" y="48.26" smashed="yes">
-<attribute name="NAME" x="45.974" y="50.165" size="1.778" layer="95"/>
-<attribute name="VALUE" x="45.974" y="44.831" size="1.778" layer="96"/>
+<instance part="D2" gate="G$1" x="48.26" y="50.8" smashed="yes">
+<attribute name="NAME" x="45.974" y="52.705" size="1.778" layer="95"/>
+<attribute name="VALUE" x="45.974" y="47.371" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -6519,7 +6520,7 @@ Maximální odběr modulu: 20 mA</text>
 <segment>
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
-<wire x1="63.5" y1="48.26" x2="63.5" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="50.8" x2="63.5" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
@@ -6527,9 +6528,9 @@ Maximální odběr modulu: 20 mA</text>
 <wire x1="40.64" y1="104.14" x2="40.64" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="50.8" y1="48.26" x2="53.34" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="50.8" x2="53.34" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
-<wire x1="53.34" y1="48.26" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="50.8" x2="53.34" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="D2" gate="G$1" pin="C"/>
 </segment>
 <segment>
@@ -6548,13 +6549,13 @@ Maximální odběr modulu: 20 mA</text>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
 <pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="63.5" y1="38.1" x2="63.5" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="40.64" x2="63.5" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J1" gate="-3" pin="S"/>
-<wire x1="43.18" y1="43.18" x2="53.34" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="45.72" x2="53.34" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="53.34" y1="43.18" x2="53.34" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="45.72" x2="53.34" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="WHITE" class="0">
@@ -6606,7 +6607,7 @@ Maximální odběr modulu: 20 mA</text>
 <net name="VIN" class="0">
 <segment>
 <pinref part="J1" gate="-1" pin="S"/>
-<wire x1="45.72" y1="48.26" x2="43.18" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="50.8" x2="43.18" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="D2" gate="G$1" pin="A"/>
 </segment>
 </net>
