@@ -76,11 +76,11 @@
 <board>
 <plain>
 <wire x1="0" y1="0" x2="8" y2="0" width="0" layer="20"/>
-<wire x1="8" y1="0" x2="8" y2="4" width="0" layer="20"/>
+<wire x1="8" y1="0" x2="8" y2="4.3" width="0" layer="20"/>
 <wire x1="8" y1="20" x2="0" y2="20" width="0" layer="20"/>
 <wire x1="0" y1="20" x2="0" y2="0" width="0" layer="20"/>
-<wire x1="8" y1="4" x2="8" y2="6.5" width="0" layer="20" curve="-180"/>
-<wire x1="8" y1="20" x2="8" y2="6.5" width="0" layer="20"/>
+<wire x1="8" y1="4.3" x2="8" y2="6.2" width="0" layer="20" curve="-180"/>
+<wire x1="8" y1="20" x2="8" y2="6.2" width="0" layer="20"/>
 <text x="2.54" y="12.7" size="0.8128" layer="26" font="vector" rot="MR0">červ.</text>
 <text x="5.715" y="19.05" size="0.8128" layer="26" font="vector" rot="MR0">zelená</text>
 <text x="7.9375" y="12.7" size="0.8128" layer="26" font="vector" rot="MR0">žlhor.</text>
