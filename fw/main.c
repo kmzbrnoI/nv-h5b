@@ -36,8 +36,6 @@ int main() {
 
 static inline void init() {
 	ACSR |= ACD;  // analog comparator disable
-	WDTCR |= 1 << WDE;  // watchdog enable
-	WDTCR |= WDP2; // ~250 ms timeout
 
 	detect_signal_type();
 	led_init();
@@ -48,6 +46,8 @@ static inline void init() {
 	TCCR0B |= 1 << CS01; // no prescaler
 	TIMSK |= 1 << OCIE0A; // enable compare match A
 	OCR0A = 99;
+
+	wdt_enable(WDTO_250MS);
 
 	sei(); // enable interrupts globally
 }
