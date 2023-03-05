@@ -6,6 +6,7 @@ panel-nv-h5b.kicad_pcb: nv-h5b.kicad_pcb Makefile
 		--tabs 'fixed; width: 3mm; height: 3mm;' \
 		--cuts 'mousebites; drill: 0.3mm; spacing: 0.6 mm; prolong: 0.5mm' \
 		--post 'millradius: 1mm' \
+		--source 'tolerance: 10mm' \
 		nv-h5b.kicad_pcb panel-nv-h5b.kicad_pcb
 
 fab: panel-nv-h5b.kicad_pcb Makefile
