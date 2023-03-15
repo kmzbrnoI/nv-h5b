@@ -5,10 +5,10 @@
   (paper "A5")
 
   (title_block
-    (title "NV-H5B test signal")
+    (title "NV-H5T")
     (date "2023-03-09")
     (rev "1.0")
-    (company "S-COM decoder with LEDs")
+    (company "S-COM testing decoder with LEDs directly on PCB")
     (comment 1 "Model Railroader Club Brno I – KMŽ Brno I – https://kmz-brno.cz/")
     (comment 2 "Jan Horáček")
     (comment 3 "https://creativecommons.org/licenses/by-sa/4.0/")
