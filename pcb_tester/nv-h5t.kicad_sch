@@ -1011,7 +1011,7 @@
     (property "Reference" "U1" (id 0) (at 170.815 42.545 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "ATtiny25-20SS" (id 1) (at 179.705 42.545 0)
+    (property "Value" "ATtiny25/45/85-20SS" (id 1) (at 153.035 73.66 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (id 2) (at 178.435 57.15 0)
@@ -1354,7 +1354,7 @@
       (reference "R7") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0805_2012Metric")
     )
     (path "/649f065c-fb95-4c73-a5ab-be6944c60862"
-      (reference "U1") (unit 1) (value "ATtiny25-20SS") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
+      (reference "U1") (unit 1) (value "ATtiny25/45/85-20SS") (footprint "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm")
     )
     (path "/18a4bb6d-9d79-44c8-afff-840695e08fa2"
       (reference "U2") (unit 1) (value "AP2204RA-3.3") (footprint "Package_TO_SOT_SMD:SOT-89-3")
