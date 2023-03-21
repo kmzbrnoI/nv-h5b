@@ -17,6 +17,15 @@ firmware source code.
  * ATtiny13A main MCU.
  * Opensource & openhardware design.
 
+## Recommended resistor values
+
+### AŽD 70 signals by Josef Němeček
+
+* Yellow: 4k7
+* Red: 10k
+* White: 22k
+* Green: 2k2
+
 ## Authors
 
  * [Jan Horacek](mailto:jan.horacek@kmz-brno.cz)
