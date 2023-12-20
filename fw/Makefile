@@ -461,6 +461,10 @@ program: $(TARGET).hex $(TARGET).eep
 fuses:
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(FUSES)
 
+program_minipro:
+	minipro -p $(MCU) -w $(TARGET).hex
+	minipro -p $(MCU) -c config -w fuses.conf
+
 # Generate avr-gdb config/init file which does the following:
 #     define the reset signal, load the target file, connect to target, and set 
 #     a breakpoint at main().
