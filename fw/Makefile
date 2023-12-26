@@ -6,7 +6,7 @@ FORMAT = ihex
 BUILDDIR = build
 TARGET = $(BUILDDIR)/nv-h5b
 OBJDIR = obj
-SRC = main.c pwm.c signal.c decode.c
+SRC = $(wildcard src/*.c)
 OPT = s
 CSTANDARD = c99
 DEBUG = dwarf-2
@@ -130,8 +130,8 @@ clean:
 	$(REMOVEDIR) $(OBJDIR)
 	$(REMOVEDIR) .dep
 
-$(shell mkdir -p $(OBJDIR) 2>/dev/null)
-$(shell mkdir -p $(BUILDDIR) 2>/dev/null)
+$(shell mkdir -p $(dir $(OBJ)) 2>/dev/null)
+$(shell mkdir -p $(dir $(TARGET)) 2>/dev/null)
 
 -include $(shell mkdir .dep 2>/dev/null) $(wildcard .dep/*)
 
