@@ -45,6 +45,8 @@ void pwm_update() {
 }
 
 void ramp_up(uint8_t mask) {
+	if (mask == 0)
+		return;
 	ramp_down_mask &= ~mask;
 	if (ramp_up_mask != 0)
 		led_set(ramp_up_mask, true);
@@ -53,6 +55,8 @@ void ramp_up(uint8_t mask) {
 }
 
 void ramp_down(uint8_t mask) {
+	if (mask == 0)
+		return;
 	ramp_up_mask &= ~mask;
 	if (ramp_down_mask != 0)
 		led_set(ramp_down_mask, false);

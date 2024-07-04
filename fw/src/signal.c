@@ -55,6 +55,7 @@ volatile int8_t current_signal_code = -1;
 volatile bool flash_state = false;
 volatile uint16_t counter = 0;
 volatile uint8_t signal_set = 0;
+volatile bool red_delayed_turnoff = false;
 
 static inline SignalCode signal_code(uint8_t index) {
 	SignalCode code;
@@ -78,6 +79,13 @@ void set_signal_code(uint8_t code) {
 		} else {
 			turn_off &= ~signal_code(current_signal_code).flash; // do not turn off already turned off
 		}
+
+		if (((signal_code(code).permanent & LED_RED) == 0) && (signal_code(current_signal_code).permanent & LED_RED)) {
+			// Delay turning the red LED off
+			red_delayed_turnoff = true;
+			turn_off &= ~LED_RED;
+		}
+
 		ramp_down(turn_off);
 	}
 
@@ -90,11 +98,17 @@ void set_signal_code(uint8_t code) {
 void signal_update() {
 	counter++;
 
-	if ((signal_code(current_signal_code).flash != 0) && (counter % SIGNAL_FLASH_PERIOD == 0)) {
-		if (flash_state)
-			ramp_down(signal_code(current_signal_code).flash);
-		else
+	if ((counter % SIGNAL_FLASH_PERIOD) == 0) {
+		if (flash_state) {
+			uint8_t down = signal_code(current_signal_code).flash;
+			if (red_delayed_turnoff) {
+				red_delayed_turnoff = false;
+				down |= LED_RED;
+			}
+			ramp_down(down);
+		} else {
 			ramp_up(signal_code(current_signal_code).flash);
+		}
 
 		flash_state = !flash_state;
 	}
