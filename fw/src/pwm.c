@@ -5,8 +5,8 @@
 #include "leds.h"
 #include "common.h"
 
-#define RAMP_UP_PERIOD 40
-#define RAMP_DOWN_PERIOD 80
+#define RAMP_UP_PERIOD 32 // should a divisor of 256
+#define RAMP_DOWN_PERIOD 64 // should a divisor of 256
 #define PWM_FULL 20
 
 volatile uint8_t ramp_up_mask = 0;

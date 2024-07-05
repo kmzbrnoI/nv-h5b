@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-extern uint16_t counter_100us;
+extern volatile uint8_t counter_100us;
 
 #endif
