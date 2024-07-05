@@ -98,7 +98,8 @@ void set_signal_code(uint8_t code) {
 void signal_update() {
 	counter++;
 
-	if ((counter % SIGNAL_FLASH_PERIOD) == 0) {
+	if (counter >= SIGNAL_FLASH_PERIOD) {
+		counter = 0;
 		if (flash_state) {
 			uint8_t down = signal_code(current_signal_code).flash;
 			if (red_delayed_turnoff) {
