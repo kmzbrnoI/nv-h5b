@@ -56,6 +56,26 @@ void init(void) {
 }
 
 void init_led_test(void) {
+	led_set(LED_YELLOW_TOP, true);
+	_delay_ms(300);
+	led_set(LED_YELLOW_TOP, false);
+	led_set(LED_GREEN, true);
+	_delay_ms(300);
+	led_set(LED_GREEN, false);
+	if (signal_set == stMain) {
+		led_set(LED_RED, true);
+		_delay_ms(300);
+		led_set(LED_RED, false);
+	}
+	led_set(LED_WHITE, true);
+	_delay_ms(300);
+	led_set(LED_WHITE, false);
+	if (signal_set == stMain) {
+		led_set(LED_YELLOW_BOTTOM, true);
+		_delay_ms(300);
+		led_set(LED_YELLOW_BOTTOM, false);
+	}
+	_delay_ms(500);
 }
 
 void detect_signal_type(void) {

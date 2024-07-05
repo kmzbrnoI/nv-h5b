@@ -5,7 +5,7 @@
 #include "signal.h"
 #include "common.h"
 
-#include "leds.h" // DEBUG
+//#include "leds.h" // DEBUG
 
 #define BIT_MIN_LENGTH 20  // 4 ms
 #define BIT_MAX_LENGTH 150  // 30 ms
