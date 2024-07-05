@@ -53,10 +53,11 @@ static inline void init() {
 }
 
 static inline void detect_signal_type() {
+	// repeater = red and bottom yellow wires connected
 	DDRB |= LED_RED; // pin as output
 	PORTB &= ~(LED_RED); // zero to output
 	_delay_ms(1);
-	signal_set = (PINB & LED_YELLOW_BOTTOM) ? 0 : 1;
+	signal_set = (PINB & LED_YELLOW_BOTTOM) ? stMain : stRepeater;
 }
 
 ISR(TIM0_COMPA_vect) {

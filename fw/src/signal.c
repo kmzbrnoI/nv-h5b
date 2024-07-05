@@ -14,6 +14,7 @@ typedef struct {
 #define NO_CODES 17
 
 const SignalCode codes[2][NO_CODES] PROGMEM = {{
+	// main signal
 	{LED_RED, 0},
 	{LED_GREEN, 0},
 	{LED_YELLOW_TOP, 0},
@@ -32,6 +33,7 @@ const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_YELLOW_TOP | LED_WHITE | LED_YELLOW_BOTTOM, 0},
 	{LED_WHITE | LED_YELLOW_BOTTOM, LED_YELLOW_TOP},
 }, {
+	// 'predvest' / repeater signal
 	{LED_WHITE | LED_YELLOW_TOP, 0},
 	{LED_WHITE | LED_GREEN, 0},
 	{LED_WHITE | LED_GREEN, 0},
@@ -54,7 +56,7 @@ const SignalCode codes[2][NO_CODES] PROGMEM = {{
 volatile int8_t current_signal_code = -1;
 volatile bool flash_state = false;
 volatile uint16_t counter = 0;
-volatile uint8_t signal_set = 0;
+volatile SignalType signal_set = 0;
 volatile bool red_delayed_turnoff = false;
 
 static inline SignalCode signal_code(uint8_t index) {

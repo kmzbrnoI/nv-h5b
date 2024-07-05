@@ -3,8 +3,14 @@
 
 #define SIGNAL_FLASH_PERIOD 5470
 
+typedef enum {
+	stMain = 0,
+	stRepeater = 1,
+	ST_COUNT
+} SignalType;
+
 extern volatile int8_t current_signal_code;
-extern volatile uint8_t signal_set;
+extern volatile SignalType signal_set;
 
 void set_signal_code(uint8_t code);
 void signal_update();
