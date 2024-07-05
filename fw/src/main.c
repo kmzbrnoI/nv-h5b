@@ -16,8 +16,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 int main();
-static inline void init();
-static inline void detect_signal_type();
+static inline void init(void);
+static inline void detect_signal_type(void);
+static inline void init_led_test(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -34,7 +35,7 @@ int main() {
 	}
 }
 
-static inline void init() {
+void init(void) {
 	ACSR |= ACD;  // analog comparator disable
 
 	detect_signal_type();
@@ -47,12 +48,17 @@ static inline void init() {
 	TIMSK |= 1 << OCIE0A; // enable compare match A
 	OCR0A = 99;
 
+	init_led_test();
+
 	wdt_enable(WDTO_250MS);
 
 	sei(); // enable interrupts globally
 }
 
-static inline void detect_signal_type() {
+void init_led_test(void) {
+}
+
+void detect_signal_type(void) {
 	// repeater = red and bottom yellow wires connected
 	DDRB |= LED_RED; // pin as output
 	PORTB &= ~(LED_RED); // zero to output

@@ -26,9 +26,9 @@ volatile uint8_t last_received_code = 0xFF;
 #define REC_STOPBIT 7
 volatile int8_t last_received = REC_NONE;
 
-static inline bool bus_state() { return PINB & 0x1; }
+static inline bool bus_state(void) { return PINB & 0x1; }
 
-void decode_init() {
+void decode_init(void) {
 	// PB0 input by default
 	PCMSK = 1 << PCINT0;
 	GIMSK |= 1 << PCIE; // enable pin change interrupt
@@ -53,13 +53,13 @@ ISR(PCINT0_vect) {
 	level_time = 0;
 }
 
-static inline void code_received() {
+static inline void code_received(void) {
 	if (received_code == last_received_code && received_code != current_signal_code)
 		set_signal_code(received_code);
 	last_received_code = received_code;
 }
 
-void decode_update() {
+void decode_update(void) {
 	if (counter_100us % 2 != 0)
 		return;
 

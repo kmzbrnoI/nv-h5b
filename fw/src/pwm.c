@@ -14,7 +14,7 @@ volatile uint8_t ramp_down_mask = 0;
 volatile uint8_t ramp_up_shift;
 volatile uint8_t ramp_down_shift;
 
-void pwm_update() {
+void pwm_update(void) {
 	volatile static uint8_t pwm_counter = 0;
 
 	if (ramp_up_mask != 0) {
