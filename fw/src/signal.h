@@ -9,7 +9,7 @@ typedef enum {
 	ST_COUNT
 } SignalType;
 
-extern volatile int8_t current_signal_code;
+extern volatile uint8_t current_signal_code;
 extern volatile SignalType signal_set;
 
 void set_signal_code(uint8_t code);

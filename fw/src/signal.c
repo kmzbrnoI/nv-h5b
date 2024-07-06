@@ -11,9 +11,11 @@ typedef struct {
 	uint8_t flash; // mask, see leds.h
 } SignalCode;
 
+#define NO_SETS 2
 #define NO_CODES 17
+#define CODE_INIT 0xFF
 
-const SignalCode codes[2][NO_CODES] PROGMEM = {{
+const SignalCode codes[NO_SETS][NO_CODES] PROGMEM = {{
 	// main signal
 	{LED_RED, 0},
 	{LED_GREEN, 0},
@@ -53,27 +55,29 @@ const SignalCode codes[2][NO_CODES] PROGMEM = {{
 	{LED_WHITE, LED_YELLOW_TOP},
 }};
 
-volatile int8_t current_signal_code = -1;
+volatile uint8_t current_signal_code = CODE_INIT;
 volatile bool flash_state = false;
 volatile uint16_t counter = 0;
 volatile SignalType signal_set = 0;
 volatile bool red_delayed_turnoff = false;
 
 static inline SignalCode signal_code(uint8_t index) {
+	if (index >= NO_CODES)
+		index = 0;
 	SignalCode code;
 	memcpy_P(&code, &codes[signal_set][index], sizeof(SignalCode));
 	return code;
 }
 
 void set_signal_code(uint8_t code) {
-	if (code >= NO_CODES)
+	if ((code >= NO_CODES) || (code == current_signal_code))
 		return;
 
 	uint8_t code_all = signal_code(code).permanent | signal_code(code).flash;
 	uint8_t current_all = signal_code(current_signal_code).permanent | signal_code(current_signal_code).flash;
 	uint8_t turn_on = code_all;
 
-	if (current_signal_code != -1) {
+	if (current_signal_code != CODE_INIT) {
 		turn_on &= ~signal_code(current_signal_code).permanent;
 		uint8_t turn_off = current_all & (~code_all);
 		if (flash_state) {
@@ -100,7 +104,7 @@ void set_signal_code(uint8_t code) {
 void signal_update() {
 	counter++;
 
-	if (counter >= SIGNAL_FLASH_PERIOD) {
+	if ((counter >= SIGNAL_FLASH_PERIOD) && (current_signal_code != CODE_INIT)) {
 		counter = 0;
 		if (flash_state) {
 			uint8_t down = signal_code(current_signal_code).flash;

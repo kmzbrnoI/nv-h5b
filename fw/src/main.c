@@ -28,7 +28,6 @@ volatile uint8_t counter_100us = 0;
 
 int main() {
 	init();
-	set_signal_code(8);
 
 	while (true) {
 		wdt_reset();
@@ -48,11 +47,15 @@ void init(void) {
 	TIMSK |= 1 << OCIE0A; // enable compare match A
 	OCR0A = 99;
 
+	sei(); // enable interrupts globally (receive code during test)
+
 	init_led_test();
 
-	wdt_enable(WDTO_250MS);
+	// If valid code already received (during test), set it directly, else set PN
+	set_signal_code((last_received_code != 0xFF) ? last_received_code : 8);
+	on_received = set_signal_code;
 
-	sei(); // enable interrupts globally
+	wdt_enable(WDTO_250MS);
 }
 
 void init_led_test(void) {

@@ -1,8 +1,8 @@
 #include <avr/interrupt.h>
+#include <stddef.h>
 #include <stdbool.h>
 
 #include "decode.h"
-#include "signal.h"
 #include "common.h"
 
 //#include "leds.h" // DEBUG
@@ -17,6 +17,7 @@ volatile uint8_t receiving_time;
 volatile int16_t received_value;
 volatile uint8_t received_code;
 volatile uint8_t last_received_code = 0xFF;
+void (*volatile on_received)(uint8_t code) = NULL;
 
 #define REC_NONE -3
 #define REC_STARTBIT -2
@@ -54,8 +55,8 @@ ISR(PCINT0_vect) {
 }
 
 static inline void code_received(void) {
-	if (received_code == last_received_code && received_code != current_signal_code)
-		set_signal_code(received_code);
+	if ((received_code == last_received_code) && (on_received != NULL))
+		on_received(received_code);
 	last_received_code = received_code;
 }
 
