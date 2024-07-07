@@ -93,7 +93,13 @@ ISR(TIM0_COMPA_vect) {
 	// Timer 0 @ 10 kHz (period 100 us)
 	counter_100us++;
 
-	signal_update();
+	static uint8_t counter_10ms = 0;
+	counter_10ms++;
+	if (counter_10ms >= 100) {
+		counter_10ms = 0;
+		signal_update_10ms();
+	}
+
 	pwm_update();
 	decode_update();
 }

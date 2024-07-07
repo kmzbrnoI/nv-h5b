@@ -57,9 +57,9 @@ const SignalCode codes[NO_SETS][NO_CODES] PROGMEM = {{
 
 volatile uint8_t current_signal_code = CODE_INIT;
 volatile bool flash_state = false;
-volatile uint16_t counter = 0;
+volatile uint8_t counter = 0;
 volatile SignalType signal_set = 0;
-volatile bool red_delayed_turnoff = false;
+volatile uint8_t red_delayed_turnoff = 0;
 
 static inline SignalCode signal_code(uint8_t index) {
 	if (index >= NO_CODES)
@@ -88,7 +88,7 @@ void set_signal_code(uint8_t code) {
 
 		if (((signal_code(code).permanent & LED_RED) == 0) && (signal_code(current_signal_code).permanent & LED_RED)) {
 			// Delay turning the red LED off
-			red_delayed_turnoff = true;
+			red_delayed_turnoff = RED_DELAY_TURNOFF;
 			turn_off &= ~LED_RED;
 		}
 
@@ -101,18 +101,19 @@ void set_signal_code(uint8_t code) {
 	counter = 0;
 }
 
-void signal_update() {
+void signal_update_10ms() {
 	counter++;
+
+	if (red_delayed_turnoff > 0) {
+		red_delayed_turnoff--;
+		if (red_delayed_turnoff == 0)
+			ramp_down(LED_RED);
+	}
 
 	if ((counter >= SIGNAL_FLASH_PERIOD) && (current_signal_code != CODE_INIT)) {
 		counter = 0;
 		if (flash_state) {
-			uint8_t down = signal_code(current_signal_code).flash;
-			if (red_delayed_turnoff) {
-				red_delayed_turnoff = false;
-				down |= LED_RED;
-			}
-			ramp_down(down);
+			ramp_down(signal_code(current_signal_code).flash);
 		} else {
 			ramp_up(signal_code(current_signal_code).flash);
 		}
