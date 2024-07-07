@@ -21,7 +21,7 @@ CFLAGS += -pedantic
 CFLAGS += -Wa,-adhlns=$(<:%.c=$(OBJDIR)/%.lst)
 CFLAGS += -std=$(CSTANDARD)
 
-LDFLAGS = -Wl,-Map=$(TARGET).map,--cref
+LDFLAGS = -Wl,-Map=$(TARGET).map,--cref,-section-start=.fwversion=0x7E0
 
 #---------------- Programming Options (avrdude) ----------------
 
