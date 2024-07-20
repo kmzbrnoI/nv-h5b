@@ -27,6 +27,13 @@ firmware source code.
 * White: 22k
 * Green: 2k2
 
+### AŽD 65 signals by Mr. Dvořáček (Pečky)
+
+* Yellow: 1k
+* Red: 4k7
+* White: 47k
+* Green: 1k
+
 ## Authors
 
  * [Jan Horacek](mailto:jan.horacek@kmz-brno.cz)
