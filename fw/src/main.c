@@ -22,7 +22,7 @@ static inline void init_led_test(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 
-const char version[16] __attribute__ ((section(".fwversion"))) = "NV-H5B   FW v1.1";
+const char version[16] __attribute__ ((section(".fwversion"))) = "NV-H5B   FW v1.2";
 volatile uint8_t counter_100us = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -86,6 +86,7 @@ void detect_signal_type(void) {
 	// repeater = red and bottom yellow wires connected
 	DDRB |= LED_RED; // pin as output
 	PORTB &= ~(LED_RED); // zero to output
+	PORTB |= LED_YELLOW_BOTTOM; // pull-up enable
 	_delay_ms(1);
 	signal_set = (PINB & LED_YELLOW_BOTTOM) ? stMain : stRepeater;
 }
