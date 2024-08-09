@@ -33,6 +33,7 @@ firmware source code.
 * Red: 10k
 * White: 22k
 * Green: 1k
+* Blue: 47k
 
 ## Authors
 
