@@ -2,7 +2,6 @@
 #define _SIGNAL_H_
 
 #define SIGNAL_FLASH_PERIOD 55 // units: 10 ms
-#define RED_DELAY_TURNOFF 15 // units: 10 ms
 
 typedef enum {
 	stMain = 0,
