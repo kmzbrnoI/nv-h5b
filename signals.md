@@ -1,6 +1,10 @@
 Návěstní kódy S-COM
 ===================
 
+Následující kódy podporuje NV-H5B, kopírují
+[specifikaci S-COM](https://www.mtb-model.com/elektro/s-com.htm).
+Záměrem je zachovat zpětnou kompatibilitu s touto specifikací.
+
 | Kód | Návěst hlavního světelného návěstidla                   | Signál hl. náv.    |
 | --- | ------------------------------------------------------- | ------------------ |
 | 0   | Stůj                                                    | Č                  |
@@ -25,7 +29,10 @@ Vysvětlivky:
 * PK = pomalu kmitající (33 kmit / min)
 * RK = rychle kmitající (66 kmit / min)
 
-## Rozšíření
+## Jízda podle rozhledových poměrů
+
+Následující kódy zatím NV-H5B nepodporuje a jsou navržené jako kódy rozšiřující.
+Tyto kódy umí mj. generovat dekodéry pana Petra Šídla.
 
 | Kód | Návěst hlavního světelného návěstidla                   | Signál hl. náv.    |
 | --- | ------------------------------------------------------- | ------------------ |
