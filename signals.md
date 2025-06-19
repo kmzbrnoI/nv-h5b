@@ -63,32 +63,48 @@ Následující kódy zatím NV-H5B nepodporuje a jsou navržené jako kódy roz�
 | 25  | Rychlost 100 km/h a volno                               |                    |
 | 26  | Rychlost 120 km/h a volno                               |                    |
 | -   | -                                                       |                    |
-| 27  | Rychlost 60 km/h a očekávejte 40 km/h                   |                    |
-| 28  | Rychlost 80 km/h a očekávejte 40 km/h                   |                    |
-| 29  | Rychlost 100 km/h a očekávejte 40 km/h                  |                    |
-| 30  | Rychlost 120 km/h a očekávejte 40 km/h                  |                    |
+| 27  | Rychlost 60 km/h a výstraha                             |                    |
+| 28  | Rychlost 80 km/h a výstraha                             |                    |
+| 29  | Rychlost 100 km/h a výstraha                            |                    |
+| 30  | Rychlost 120 km/h a výstraha                            |                    |
 | -   | -                                                       |                    |
-| 31  | Rychlost 40 km/h a očekávejte 60 km/h                   |                    |
-| 32  | Rychlost 60 km/h a očekávejte 60 km/h                   |                    |
-| 33  | Rychlost 80 km/h a očekávejte 60 km/h                   |                    |
-| 34  | Rychlost 100 km/h a očekávejte 60 km/h                  |                    |
-| 35  | Rychlost 120 km/h a očekávejte 60 km/h                  |                    |
+| 31  | Rychlost 60 km/h a očekávejte 40 km/h                   |                    |
+| 32  | Rychlost 80 km/h a očekávejte 40 km/h                   |                    |
+| 33  | Rychlost 100 km/h a očekávejte 40 km/h                  |                    |
+| 34  | Rychlost 120 km/h a očekávejte 40 km/h                  |                    |
 | -   | -                                                       |                    |
-| 36  | Rychlost 40 km/h a očekávejte 80 km/h                   |                    |
-| 37  | Rychlost 60 km/h a očekávejte 80 km/h                   |                    |
-| 38  | Rychlost 80 km/h a očekávejte 80 km/h                   |                    |
-| 39  | Rychlost 100 km/h a očekávejte 80 km/h                  |                    |
-| 40  | Rychlost 120 km/h a očekávejte 80 km/h                  |                    |
+| 35  | Rychlost 40 km/h a očekávejte 60 km/h                   |                    |
+| 36  | Rychlost 60 km/h a očekávejte 60 km/h                   |                    |
+| 37  | Rychlost 80 km/h a očekávejte 60 km/h                   |                    |
+| 38  | Rychlost 100 km/h a očekávejte 60 km/h                  |                    |
+| 39  | Rychlost 120 km/h a očekávejte 60 km/h                  |                    |
 | -   | -                                                       |                    |
-| 41  | Rychlost 40 km/h a očekávejte 100 km/h                  |                    |
-| 42  | Rychlost 60 km/h a očekávejte 100 km/h                  |                    |
-| 43  | Rychlost 80 km/h a očekávejte 100 km/h                  |                    |
-| 44  | Rychlost 100 km/h a očekávejte 100 km/h                 |                    |
-| 45  | Rychlost 120 km/h a očekávejte 100 km/h                 |                    |
+| 40  | Rychlost 40 km/h a očekávejte 80 km/h                   |                    |
+| 41  | Rychlost 60 km/h a očekávejte 80 km/h                   |                    |
+| 42  | Rychlost 80 km/h a očekávejte 80 km/h                   |                    |
+| 43  | Rychlost 100 km/h a očekávejte 80 km/h                  |                    |
+| 44  | Rychlost 120 km/h a očekávejte 80 km/h                  |                    |
 | -   | -                                                       |                    |
-| 46  | Rychlost 40 km/h a očekávejte 120 km/h                  |                    |
-| 47  | Rychlost 60 km/h a očekávejte 120 km/h                  |                    |
-| 48  | Rychlost 80 km/h a očekávejte 120 km/h                  |                    |
-| 49  | Rychlost 100 km/h a očekávejte 120 km/h                 |                    |
-| 50  | Rychlost 120 km/h a očekávejte 120 km/h                 |                    |
+| 45  | Rychlost 40 km/h a očekávejte 100 km/h                  |                    |
+| 46  | Rychlost 60 km/h a očekávejte 100 km/h                  |                    |
+| 47  | Rychlost 80 km/h a očekávejte 100 km/h                  |                    |
+| 48  | Rychlost 100 km/h a očekávejte 100 km/h                 |                    |
+| 49  | Rychlost 120 km/h a očekávejte 100 km/h                 |                    |
 | -   | -                                                       |                    |
+| 50  | Rychlost 40 km/h a očekávejte 120 km/h                  |                    |
+| 51  | Rychlost 60 km/h a očekávejte 120 km/h                  |                    |
+| 52  | Rychlost 80 km/h a očekávejte 120 km/h                  |                    |
+| 53  | Rychlost 100 km/h a očekávejte 120 km/h                 |                    |
+| 54  | Rychlost 120 km/h a očekávejte 120 km/h                 |                    |
+| -   | -                                                       |                    |
+| 55  | Opakování návěsti Očekávejte rychlost 60 km/h           |                    |
+| 56  | Opakování návěsti Očekávejte rychlost 80 km/h           |                    |
+| 57  | Opakování návěsti Očekávejte rychlost 100 km/h          |                    |
+| 58  | Opakování návěsti Očekávejte rychlost 120 km/h          |                    |
+| 59  | Rychlost 30 km/h a opakování návěsti Výstraha           |                    |
+| 60  | Rychlost 40 km/h a opak. návěsti Oček. rych. 60 km/h    |                    |
+| 61  | Rychlost 40 km/h a opak. návěsti Oček. rych. 80 km/h    |                    |
+| 62  | Rychlost 40 km/h a opak. návěsti Oček. rych. 100 km/h   |                    |
+| 63  | Rychlost 40 km/h a opak. návěsti Oček. rych. 120 km/h   |                    |
+
+TODO: rychlostní indikátory nad i pod návěstidlem
