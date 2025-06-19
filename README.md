@@ -17,6 +17,7 @@ firmware source code.
  * Separate resistor for each LED to unify brightness.
  * ATtiny25 main MCU.
  * Opensource & openhardware design.
+ * [Supported signals (CZ)](signals.md).
 
 ## Recommended resistor values
 
