@@ -93,11 +93,11 @@ zapojeny:
 | 33  | Rychlost zobrazená na RIA a výstraha                    | HŽ + DŽ + RIA               |                  |
 | 34  | Rychlost zobrazená na RIB a výstraha                    | HŽ + DŽ + RIB               |                  |
 | -   | -                                                       |                             |                  |
-| 35  | Rychlost 60 km/h a očekávejte 40 km/h                   | PK HŽ + DŽ + ŽP             |                  |
-| 36  | Rychlost 80 km/h a očekávejte 40 km/h                   | PK HŽ + DŽ + HZP            |                  |
-| 37  | Rychlost 100 km/h a očekávejte 40 km/h                  | PK HŽ + DŽ + HZP + DZP      |                  |
-| 38  | Rychlost zobrazená na RIA a očekávejte 40 km/h          | PK HŽ + DŽ + RIA            |                  |
-| 39  | Rychlost zobrazená na RIB a očekávejte 40 km/h          | PK HŽ + DŽ + RIB            |                  |
+| 35  | Rychlost 60 km/h a očekávejte 40 km/h                   | PK HŽ + DŽ + ŽP             | 20/68            |
+| 36  | Rychlost 80 km/h a očekávejte 40 km/h                   | PK HŽ + DŽ + HZP            | 21/69            |
+| 37  | Rychlost 100 km/h a očekávejte 40 km/h                  | PK HŽ + DŽ + HZP + DZP      | 22/70            |
+| 38  | Rychlost zobrazená na RIA a očekávejte 40 km/h          | PK HŽ + DŽ + RIA            | 23/71            |
+| 39  | Rychlost zobrazená na RIB a očekávejte 40 km/h          | PK HŽ + DŽ + RIB            | 24/72            |
 | -   | -                                                       |                             |                  |
 | 40  | Rychlost 40 km/h a očekávejte 60 km/h                   | RK HŽ + DŽ                  |                  |
 | 41  | Rychlost 60 km/h a očekávejte 60 km/h                   | RK HŽ + DŽ + ŽP             |                  |
@@ -149,3 +149,8 @@ zapojeny:
 
 Nevýhodou univerzálních výstupů `RIA` a `RIB` je, že kód návěsti nepřenáší přímo
 dovolenou rychlost.
+
+Nevýhodou navrženého řešení je omezení rychlostních indikátorů každého
+návěstidla na dva.
+
+S-COM přijímač by měl mít 10 výstupů (HŽ, Z, Č, B, DŽ, ŽP, HZP, DZP, RIA, RIB).
