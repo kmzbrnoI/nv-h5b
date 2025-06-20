@@ -147,3 +147,5 @@ zapojeny:
 | 80  | Rychlost 40 km/h a opak. návěsti Oček. rych. RIA        | RIA + RK Z + DŽ + RIA       |                  |
 | 81  | Rychlost 40 km/h a opak. návěsti Oček. rych. RIB        | RIB + RK Z + DŽ + RIB       |                  |
 
+Nevýhodou univerzálních výstupů `RIA` a `RIB` je, že kód návěsti nepřenáší přímo
+dovolenou rychlost.
