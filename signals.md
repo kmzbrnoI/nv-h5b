@@ -26,8 +26,8 @@ Záměrem je zachovat zpětnou kompatibilitu s touto specifikací.
 | 16  | Rychlost 40 km/h a opakování návěsti očekávejte 40 km/h | PK HŽ + B + DŽ     | 3/14             |
 
 Vysvětlivky:
-* PK = pomalu kmitající (33 kmit / min)
-* RK = rychle kmitající (66 kmit / min)
+* PK = pomalu kmitající (54 kmit / min)
+* RK = rychle kmitající (108 kmit / min)
 * HŽ = horní žlutá
 * Z = zelená
 * Č = červená
