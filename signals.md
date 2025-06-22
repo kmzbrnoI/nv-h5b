@@ -7,7 +7,7 @@ Záměrem je zachovat zpětnou kompatibilitu s touto specifikací.
 
 | Kód | Návěst hlavního světelného návěstidla                   | Signál hl. náv.    | Návěst předvěsti |
 | --- | ------------------------------------------------------- | ------------------ | ---------------- |
-| 0   | Stůj / Posun zakázán                                    | Č / M *            | 2/12             |
+| 0   | Stůj / Posun zakázán                                    | Č + M              | 2/12             |
 | 1   | Volno                                                   | Z                  | 1/11             |
 | 2   | Výstraha                                                | HŽ                 | 1/11             |
 | 3   | Očekávejte rychlost 40 km/h                             | PK HŽ              | 1/11             |
@@ -39,8 +39,6 @@ Vysvětlivky:
 * ŽP = žlutý proužek
 * RIA = rychlostní indikátor A
 * RIB = rychlostní indikátor B
-
-(*) TODO co u návěstidel, které obsahují modrou i červenou?
 
 ## Jízda podle rozhledových poměrů
 
@@ -153,4 +151,16 @@ dovolenou rychlost.
 Nevýhodou navrženého řešení je omezení rychlostních indikátorů každého
 návěstidla na dva.
 
-S-COM přijímač by měl mít 10 výstupů (HŽ, Z, Č, B, DŽ, ŽP, HZP, DZP, RIA, RIB).
+S-COM přijímač by měl mít 11 výstupů (HŽ, Z, Č, M, B, DŽ, ŽP, HZP, DZP, RIA, RIB).
+
+## Otevřené body
+
+1. Protokol neumožňuje volit mezi denní a noční návěstí. Přidat další bit (8bitová komunikace)?
+2. D1 definuje opakovací návěsti s rychlostním limitem pouze pro rychlost
+   40 km/h, návěsti 75 a 76 jsou v D1 označené jako zastaralé (nově se nezřizují).
+   Proč? Má smysl umět opakovat všechny opakovatelné návěsti?
+3. Stačí 2 rychlostní indikátory?
+4. Synchronizace kmitání mezi návěstidly.
+5. Protokol neumí indikovat z které koleje je postaveno u skupinového návěstidla.
+6. Stačí u vložených návěstidel jedna návěst Stůj s červenou a modrou, nebo je třeba
+   mít samostatné návěsti: červená, modrá, červená+modrá? D1 specifikuje všechny 3 návěsti.
