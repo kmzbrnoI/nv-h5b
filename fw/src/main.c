@@ -37,6 +37,7 @@ int main() {
 
 void init(void) {
 	ACSR |= ACD;  // analog comparator disable
+	PRR = (1 << PRADC) | (1 << PRUSI) | (1 << PRTIM1); // disable ADC, USI, TIMER1
 
 	detect_signal_type();
 	led_init();
