@@ -90,6 +90,8 @@ fuses:
 
 program_minipro:
 	minipro -p $(MCU) -w $(TARGET).hex
+
+fuses_minipro:
 	minipro -p $(MCU) -c config -w fuses.conf
 
 $(BUILDDIR)/%.hex: $(BUILDDIR)/%.elf
