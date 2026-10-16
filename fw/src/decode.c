@@ -11,13 +11,13 @@
 #define BIT_MAX_LENGTH 150  // 30 ms
 #define SIGNAL_TIMEOUT 250  // 50 ms
 
-volatile uint8_t level_time = 0;
-volatile uint8_t period;
-volatile uint8_t receiving_time;
-volatile int16_t received_value;
-volatile uint8_t received_code;
-volatile uint8_t last_received_code = 0xFF;
-void (*volatile on_received)(uint8_t code) = NULL;
+uint8_t level_time = 0;
+uint8_t period;
+uint8_t receiving_time;
+int16_t received_value;
+uint8_t received_code;
+uint8_t last_received_code = 0xFF;
+void (*on_received)(uint8_t code) = NULL;
 
 #define REC_NONE -3
 #define REC_STARTBIT -2
@@ -25,7 +25,7 @@ void (*volatile on_received)(uint8_t code) = NULL;
 #define REC_BIT0 0
 #define REC_BIT6 6
 #define REC_STOPBIT 7
-volatile int8_t last_received = REC_NONE;
+int8_t last_received = REC_NONE;
 
 static inline bool bus_state(void) { return PINB & 0x1; }
 

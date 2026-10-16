@@ -9,13 +9,13 @@
 #define RAMP_DOWN_PERIOD 64 // should a divisor of 256
 #define PWM_FULL 20
 
-volatile uint8_t ramp_up_mask = 0;
-volatile uint8_t ramp_down_mask = 0;
-volatile uint8_t ramp_up_shift;
-volatile uint8_t ramp_down_shift;
+uint8_t ramp_up_mask = 0;
+uint8_t ramp_down_mask = 0;
+uint8_t ramp_up_shift;
+uint8_t ramp_down_shift;
 
 void pwm_update(void) {
-	volatile static uint8_t pwm_counter = 0;
+	static uint8_t pwm_counter = 0;
 
 	if (ramp_up_mask != 0) {
 		led_set(ramp_up_mask, pwm_counter <= ramp_up_shift);

@@ -55,11 +55,11 @@ const SignalCode codes[NO_SETS][NO_CODES] PROGMEM = {{
 	{LED_WHITE, LED_YELLOW_TOP},
 }};
 
-volatile uint8_t current_signal_code = CODE_INIT;
-volatile bool flash_state = false;
-volatile uint8_t counter = 0;
-volatile SignalType signal_set = 0;
-volatile bool red_delayed_turnoff = false;
+uint8_t current_signal_code = CODE_INIT;
+bool flash_state = false;
+uint8_t counter = 0;
+SignalType signal_set = 0;
+bool red_delayed_turnoff = false;
 
 static inline SignalCode signal_code(uint8_t index) {
 	if (index >= NO_CODES)

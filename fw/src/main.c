@@ -22,8 +22,10 @@ static inline void init_led_test(void);
 
 ///////////////////////////////////////////////////////////////////////////////
 
-const char version[16] __attribute__ ((section(".fwversion"))) = "NV-H5B   FW v1.2";
-volatile uint8_t counter_100us = 0;
+const char version[16] __attribute__ ((section(".fwversion"))) = "NV-H5B   FW v1.3";
+uint8_t counter_100us = 0;
+volatile bool irq_100us = false;
+volatile bool irq_10ms = false;
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -31,6 +33,18 @@ int main() {
 	init();
 
 	while (true) {
+		if (irq_100us) {
+			irq_100us = false;
+			counter_100us++;
+			pwm_update();
+			decode_update();
+		}
+
+		if (irq_10ms) {
+			irq_10ms = false;
+			signal_update_10ms();
+		}
+
 		wdt_reset();
 	}
 }
@@ -94,15 +108,12 @@ void detect_signal_type(void) {
 
 ISR(TIM0_COMPA_vect) {
 	// Timer 0 @ 10 kHz (period 100 us)
-	counter_100us++;
+	irq_100us = true;
 
 	static uint8_t counter_10ms = 0;
 	counter_10ms++;
 	if (counter_10ms >= 100) {
 		counter_10ms = 0;
-		signal_update_10ms();
+		irq_10ms = true;
 	}
-
-	pwm_update();
-	decode_update();
 }
